@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>Food safety complaint | Complaint details</title>
+
+  <meta name="description" content="DESCRIPTION">
+  <meta name="keywords" content="KEYWORDS">
+
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
+  <link rel="schema.AGLSTERMS" href="http://www.agls.gov.au/agls/terms/">
+
+  <meta name="DCTERMS.creator" scheme="AGLSTERMS.GOLD" content="c=AU; o=The State of Queensland; ou=DEPARTMENT NAME; ou=UNIT NAME">
+  <meta name="DCTERMS.publisher" scheme="AGLSTERMS.AglsAgent" content="corporateName=The State of Queensland; jurisdiction=Queensland">
+  <meta name="DCTERMS.created" content="2010-11-04">
+  <meta name="DCTERMS.modified" content="2011-03-05">
+  <meta name="DCTERMS.title" content="Add your heading">
+  <meta name="DCTERMS.alternative" content="Add your heading">
+  <meta name="DCTERMS.description" content="DESCRIPTION">
+  <meta name="DCTERMS.subject" scheme="AGLSTERMS.APAIS" content="SUBJECT">
+  <meta name="AGLSTERMS.function" scheme="AGLSTERMS.AGIFT" content="FUNCTION">
+  <meta name="DCTERMS.type" scheme="DCTERMS.DCMIType" content="Text">
+  <meta name="AGLSTERMS.documentType" scheme="AGLSTERMS.agls-document" content="guidelines">
+  <meta name="DCTERMS.audience" scheme="AGLSTERMS.agls-audience" content="">
+  <meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="Queensland">
+
+  <!-- Open graph -->
+  <meta property="og:title" content="Queensland Government">
+  <meta property="og:description" content="DESCRIPTION">
+  <meta property="og:image" content="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="article" /> 
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Queensland Government" />
+  <meta name="twitter:description" content="DESCRIPTION" />
+  <meta name="twitter:image" content="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png" />
+
+  <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="https://static.qgov.net.au/assets/v3.1/latest/images/favicon.ico">
+
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
+
+<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
+
+<noscript>
+	<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
+</noscript>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<!-- STYLESHEETS ADDED IN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- SCRIPTS ADDED IN -->
+<!--Show or hide page sections on page load-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#AllergicReactionDetails').hide();
+    $('#FoodDetails').hide();
+    $('#FoodSafetyConcern').hide();
+    $('#HasFoodSamples').hide();
+    $('#FoodSamplesInformation').hide();
+
+    var complaintSubType = sessionStorage.getItem("complaint_sub_type");
+    document.getElementById("ComplaintSubType").innerHTML = complaintSubType;
+  });
+</script> 
+
+<!--Show or hide page sections based on whether consumer had an allergic reaction-->
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#HadAllergicReaction').click(function(){
+        var selectedvalue = $("input[name='HadAllergicReaction']:checked").val();
+        //alert("Selected value is: " + selectedvalue);
+        if (selectedvalue == "HadAllergicReaction-Yes") {
+          $('#AllergicReactionDetails').show();
+          $('#FoodSafetyConcern').hide();
+          $('#FoodDetails').hide();
+        }
+        else {
+          $('#AllergicReactionDetails').hide();
+         
+          var complaintSubType = sessionStorage.getItem("complaint_sub_type");
+          switch(complaintSubType) {
+            case "Food was not prepared or handled safely for food allergy":
+              $('#FoodDetails').hide();
+              $('#FoodSafetyConcern').show();
+              break;
+            case "Label is incorrect or unclear for food allergy":
+              $('#FoodSafetyConcern').hide();
+              $('#FoodDetails').show();
+              break;
+            default:
+              break;
+            }
+          }
+          $('#HasFoodSamples').show();
+          $('#FoodSamplesInformation').hide();
+      
+      });
+  });
+</script> 
+  
+<!--Show or hide information about how to store food samples-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#HasFoodSamples').click(function(){
+      var selectedvalue = $("input[name='HasFoodSamples']:checked").val();
+      //alert("Selected value is: " + selectedvalue);
+      if (selectedvalue == "HasFoodSamples-Yes") {
+        $('#FoodSamplesInformation').show();
+      }
+      else {
+        $('#FoodSamplesInformation').hide();
+      }
+    });
+});
+</script> 
+
+</head>
+
+<body data-qg-accessibility="true">
+
+  <section id="qg-access" role="navigation" aria-labelledby="landmark-label">
+    <h2 id="landmark-label" tabindex="0">Skip links and keyboard navigation</h2>
+    <ul>
+      <li><a id="skip-to-content" href="#qg-primary-content">Skip to content</a></li>
+      <li id="access-instructions"><a href="https://www.qld.gov.au/help/keyboard#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
+    </ul>
+  </section>
+
+<!-- Page body-->
+<div class="container-fluid qg-site-width">
+    
+  <!-- Page header-->
+  <header id="qg-site-header">
+
+    <!-- Message for prototype - this will not be displayed in the final design-->
+    <div class="alert alert-danger qg-noicon">
+      <header text-align="centre" vertical-align="middle">
+        <h2>Food Safety Complaint Prototype</h2>
+       </header>
+      <section text-align="centre" vertical-align="middle">
+        <p>Internal use only.  This is a prototype of the proposed online food safety complaint form.  
+        This banner will not be shown in the final product.</p>
+      </section>
+    </div>
+
+    <!-- Queensland Government Logo-->
+    <div class="qg-coat-of-arms col-xs-6 col-md-4">
+      <a href="//www.qld.gov.au" tabindex="0">
+        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
+        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
+      </a>
+    </div>
+
+
+    <!-- Contact us and search -->
+    <ul class="qg-utilities list-inline col-xs-6 col-md-5">
+      <li>
+          <a href="https://www.qld.gov.au/contact-us/"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span><span class="hidden-xs hidden-sm">Contact us</span></a>
+      </li>
+
+      <li class="hidden-md hidden-lg">
+          <button id="qg-show-search"
+                  aria-label="Search"
+                  data-toggle="collapse"
+                  data-target="#qg-search-form"><span class="fa fa-search fa-2x" aria-hidden="true"></span>
+          </button>
+      </li>
+      <li class="hidden-md hidden-lg">
+          <button id="qg-show-menu"
+                  aria-label="Menu"
+                  data-toggle="collapse"
+                  data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span>
+            </button>
+      </li>
+    </ul>
+    <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3 qg-web-autocomplete">
+      <div class="input-group">
+        <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
+        <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
+        <span class="input-group-btn">
+          <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
+        </span>
+      </div>
+      
+      <!--parameters to display results on search page-->
+      <input type="hidden" name="num_ranks" value="10">
+      <input type="hidden" name="tiers" value="off">
+      <input type="hidden" name="collection" value="qld-gov">
+      <input type="hidden" name="profile" value="qld">
+    </form>
+
+
+  <!-- Links For Queenslanders, Business and industry, Government employees-->  
+  <nav id="qg-site-nav" role="navigation" aria-label="Main navigation" class="collapse">
+    <ul>
+      <li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
+      <li><a href="https://www.business.qld.gov.au/">Business and industry</a></li>
+      <li><a href="https://www.forgov.qld.gov.au/">Government employees</a></li>
+    </ul>
+  </nav>
+
+  </header>
+
+  <!-- Page content-->
+  <div id="qg-content">
+    <div id="qg-two-col-nav" class="row wide">
+
+      <!-- Breadcrumbs-->
+      <nav id="qg-breadcrumb" role="navigation" aria-label="breadcrumb navigation" aria-labelledby="breadcrumb-heading" class="collapse">
+        <h2 id="breadcrumb-heading" class="qg-visually-hidden">You are here:</h2>
+        <ol class="list-inline">
+            <li><a href="https://www.qld.gov.au">Queensland Government home</a></li>
+            <li><a href="https://www.business.qld.gov.au/">Business and industry</a></li>
+            <li><a href="1-Home.html">The Food Pantry</a></li>
+            <li>Make a food safety complaint</li>
+        </ol>
+      </nav>
+
+      <!-- Main content-->
+      <div id="qg-primary-content" role="main">
+        <h1>Complaint Details</h1>
+        <!--<h3>Allergy or allergic reaction complaint </h3>
+        <h4 id="ComplaintSubType">&lt;&lt;<italic></italic>&gt;&gt;</h4>
+        <br>  
+        -->
+        
+        
+        <form id="ComplaintDetailsFormAllergy">
+          <div class="form-group" id="HadAllergicReaction">
+            <fieldset>
+              <label>
+                <span class="lead">Did you have an allergic reaction as a result of eating food? </span>
+                <abbr title="(required)">*</abbr>
+              </label>
+              <ol class="questions">
+                <ul class= "choices compact">
+                  <li>
+                    <input type="radio" name="HadAllergicReaction" id="HadAllergicReaction-Yes" value="HadAllergicReaction-Yes" unchecked/>
+                    <label for="HadAllergicReaction-Yes">Yes</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="HadAllergicReaction" id="HadAllergicReaction-No" value="HadAllergicReaction-No" unchecked/>
+                    <label for="HadAllergicReaction-No">No</label>
+                  </li>
+                </ul>
+              </ol> 
+            </fieldset>  
+          </div>
+    
+          <div class="form-group" id="AllergicReactionDetails">
+            <h2>Allergic reaction details</h2>
+            <fieldset>
+              <label for="AllergicReaction">
+                <span class="lead">Describe your allergic reaction 
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <textarea class="form-control" rows="4" style="min-width: 100%" name="AllergicReaction" id="AllergicReaction"></textarea>
+ 
+              <br>
+              <label for="PracticeConcern">
+                <span class="lead">Describe your concern about the food handling practice, hygiene or business cleanliness
+                <abbr title="(required)">*</abbr></span>
+                <small class="hint"> 
+                  Please give us as much detail as possible to help investigate your concerns.
+                </small>
+              </label>
+              <textarea class="form-control" rows="4" style="min-width: 100%" name="PracticeConcern" id="PracticeConcern"></textarea> 
+ 
+              <br>
+              <label for="DateFoodEaten">
+                <span class="lead">When did you eat the food? 
+                  <abbr title="(required)">*</abbr>
+                </span>
+              </label>
+              <input type="date" id="DateFoodEaten" name="DateFoodEaten">
+          
+              <br>
+              <br>
+              <label for="TimeFoodEaten">
+                <span class="lead">What time did you eat the food?</span>
+                <small class="hint"> 
+                  For example: 2:15pm or 14:30. If you don’t know the exact time, enter an estimate, such as: breakfast, mid-morning, or between 1 and 2pm.
+                </small>
+              </label>
+              <input class="form-control" type="text" name="TimeFoodEaten" id="TimeFoodEaten" maxlength = "100">
+
+              <br>
+              <label for="DateReactionOccurred">
+                <span class="lead">When did the reaction occur? 
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <input type="date" id="DateReactionOccurred" name="DateReactionOccurred">
+              
+              <br>
+              <br>
+              <label for="TimeReactionOccurred">
+                <span class="lead">What time did the reaction start?
+                <abbr title="(required)">*</abbr>
+                </span>
+              </label>
+              <input class="form-control" type="text" name="TimeReactionOccurred" id="TimeReactionOccurred" maxlength = "100">
+  
+              <br>
+              <label for="MedicalTreatment">
+                <span class="lead">Describe any medical treatment
+                <abbr title="(required)">*</abbr></span>
+                <small class="hint"> 
+                  For example, any medication taken, visits to hospital, etc.
+                </small>
+              </label>
+              <textarea class="form-control" rows="4" style="min-width: 100%" name="MedicalTreatment" id="MedicalTreatment"></textarea>
+
+              <br>
+              <label for="KnownFoodAllergies">
+                <span class="lead">What is your known food allergy? 
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <textarea class="form-control" rows="4" style="min-width: 100%" name="KnownFoodAllergies" id="KnownFoodAllergies"></textarea> 
+            </fieldset>
+          </div>
+
+          <div class="form-group" id="FoodDetails">
+            <h2>Food details</h2>
+            <fieldset>
+              <label for="Fooditem">
+                <span class="lead">Describe the food  
+                <abbr title="(required)">*</abbr></span>
+                <small class="hint"> 
+                  Include the name of the food, brand, size, flavour, etc.
+                </small>
+              </label>
+              <textarea class="form-control" rows="2" style="min-width: 100%" name="Fooditem" id="Fooditem"></textarea> 
+
+              <br>
+              <label for="FoodLabelConcern">
+                <span class="lead">Describe your concern with the food or the label 
+                <abbr title="(required)">*</abbr></span>
+                <small class="hint"> 
+                  For example, if the label did not declare an allergen that you believe is in the food.
+                </small>
+              </label>
+              <textarea class="form-control" rows="4" style="min-width: 100%" name="FoodLabelConcern" id="FoodLabelConcern"></textarea> 
+
+              <br>
+              <label for="DateMark">
+                <span class="lead">What is the expiry date of the food? </span>
+                <small class="hint"> 
+                  For packaged food, enter the date mark on the packaging.  This will usually be in the format of dd/mm/yyyy or mmm/yyyy (for example. 15/03/2020 or Mar 2022).  Leave this question blank if the food was not packaged or did not have an expiry date.
+                </small>
+              </label>
+              <input type="text" name="DateMark" id="DateMark" maxlength = "15">
+
+              <br>
+              <br>
+              <label for="DateFoodBought">
+                <span class="lead">When did you buy or receive the food?  
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <input type="date" id="DateFoodBought" name="DateFoodBought">
+
+            </fieldset>
+          </div>
+
+          <div class="form-group" id="FoodSafetyConcern">
+            <h2>Food safety concern</h2>
+            <fieldset>
+              <label for="PracticeConcern">
+                <span class="lead">Describe your concern about the food handling practice, hygiene or business cleanliness
+                <abbr title="(required)">*</abbr></span>
+                <small class="hint"> 
+                  Please give us as much detail as possible to help investigate your concerns.
+                </small>
+              </label>
+              <textarea class="form-control" rows="4" style="min-width: 100%" name="PracticeConcern" id="PracticeConcern"></textarea> 
+ 
+              <br>
+              <label for="DatePractieConcernOccurred">
+                <span class="lead">What day did this occur?
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <input type="date" id="DatePractieConcernOccurred" name="DatePractieConcernOccurred">
+              
+              <br>
+              <br>
+              <label for="TimePractieConcernOccurred">
+                <span class="lead">What time did this occur?
+                </span>
+                <small class="hint"> 
+                  For example: 2:15pm or 14:30. If you don’t know the exact time, enter an estimate, such as: between 1 and 2pm, or mid-afternoon.
+                </small>
+              </label>
+              <input class="form-control" type="text" name="TimePractieConcernOccurred" id="TimePractieConcernOccurred" maxlength = "100">
+              </fieldset>
+          </div>
+  
+          <div class="form-group" id="HasFoodSamples">
+            <label>
+              <span class="lead">Do you have a receipt or proof of purchase?</span>
+              <abbr title="(required)">*</abbr>
+            </label>
+            <ol class="questions">
+              <ul class= "choices compact">
+                <li>
+                  <input type="radio" name="HasReceipt" id="HasReceipt-Yes" value="HasReceipt-Yes" unchecked/>
+                  <label for="HasReceipt-Yes">Yes</label>
+                </li>
+                <li>
+                  <input type="radio" name="HasReceipt" id="HasReceipt-No" value="HasReceipt-No" unchecked/>
+                  <label for="HasReceipt-No">No</label>
+                </li>
+                <li>
+                  <input type="radio" name="HasReceipt" id="HasReceipt-NA" value="HasReceipt-NA" unchecked/>
+                  <label for="HasReceipt-NA">Not applicable</label>
+                </li>
+              </ul>
+            </ol> 
+            <br>
+            <br>
+            <h2>Food samples</h2>
+            <fieldset>
+              <label>
+                <span class="lead">Do you have the food package or any leftover food?  </span>
+                <abbr title="(required)">*</abbr>
+              </label>
+              <ol class="questions">
+                <ul class= "choices compact">
+                  <li>
+                    <input type="radio" name="HasFoodSamples" id="HasFoodSamples-Yes" value="HasFoodSamples-Yes" unchecked/>
+                    <label for="HasSamples-Yes">Yes</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="HasFoodSamples" id="HasFoodSamples-No" value="HasFoodSamples-No" unchecked/>
+                    <label for="HasSamples-No">No</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="HasFoodSamples" id="HasFoodSamples-NA" value="HasFoodSamples-NA" unchecked/>
+                    <label for="HasSamples-NA">Not applicable</label>
+                  </li>
+                </ul>
+              </ol>              
+            </fieldset>
+          </div>
+
+          <div class="form-group" id="FoodSamplesInformation">
+            <div class="alert alert-info" role="alert">
+              <h3><i class="material-icons"> info </i>&nbsp Important information</h3>
+              <p>It is important the food package or leftover food is stored safely in case an environmental health officer needs the items for further investigation.  
+              </p>
+              <ol>
+                <li>Keep the food in the original packaging (if available)</li>
+                <li>Place the food in a container that you can tightly seal</li>
+                <li>Follow the manufacturer’s instructions to see if the leftover food should be stored in the cupboard, fridge or freezer.</li>
+              </ol>
+            </div>
+          </div>
+        </form> 
+
+        
+        <!-- Page buttons -->
+        <br>
+        <a class="qg-btn btn-default" href="3-ComplaintType.html">Previous</a>&nbsp;
+        <a class="qg-btn btn-primary" href="5-Retailer.html">Next</a>&nbsp;
+        <a href="1-Home.html">Cancel</a>
+        <br>
+        <br>
+
+        <!-- Page dates-->  
+        <div class="qg-content-footer">
+            <dl>
+              <dt>Last updated:</dt>
+              <dd>05 March 2020</dd>
+              <dt>Last reviewed:</dt>
+              <dd>05 March 2020</dd>
+         <!-- Page dates-->   </dl>
+        </div>
+  </div>
+    
+
+    <!-- LEFT SIDE NAVIGATION --> 
+    <nav id="qg-section-nav" aria-label="side navigation" role="navigation">
+      <h2><a href="#">The Food Pantry</a></h2>
+      <ul aria-label="section navigation">
+        <li><a href="#">Make a food safety complaint</a>
+          <ol class="guide-sub-nav">
+            <li><a href="1-Home.html" aria-hidden="true" ><span class="page-number">1</span>Home</a></li>
+            <li><a href="2-AcceptTerms.html"aria-hidden="true"><span class="page-number">2</span>Accept terms of use</a></li>                
+            <li><a href="3-ComplaintType.html" aria-hidden="true"><span class="page-number">3</span>Complaint type</a></li>
+            <li><a href="4-ComplaintDetails.html" aria-hidden="true" class="active"><span class="page-number">4</span>Complaint details</a></li>
+            <li><a href="5-Retailer.html" aria-hidden="true"><span class="page-number">5</span>Business details</a></li>
+            <li><a href="6-Manufacturer.html" aria-hidden="true"><span class="page-number">6</span>Manufacturer details</a></li>
+            <li><a href="7-Documents.html" aria-hidden="true"><span class="page-number">7</span>Documents</a></li>
+            <li><a href="8-AboutYou.html" aria-hidden="true"><span class="page-number">8</span>About you</a></li>
+           </ol>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+   <!-- Feeback button and sharing links-->
+   <div id="qg-options" class="row">
+     <!-- Sharing options --> 
+     <div id="qg-share" class="qg-share"></div>
+    
+     <!-- Feedback button-->
+     <div id="qg-feedback-btn">
+        <button class="btn btn-default qg-toggle-btn collapsed qg-icon" id="page-feedback-useful"
+            data-toggle="collapse"
+            data-target="#qg-page-feedback">Feedback
+        </button>
+      </div>  
+    </div>
+
+
+  <!-- Footer-->
+  <footer>
+    <div class="qg-site-map row">
+
+    <div>
+        <h3>
+            <a href="https://www.qld.gov.au/">Queensland Government</a>
+            <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-qg" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
+        </h3>
+        <ul class="collapse" id="footer-info-qg">
+            <li><a href="https://www.qld.gov.au/about/contact-government/contacts/">Government contacts</a></li>
+            <li><a href="https://www.qld.gov.au/about/contact-government/have-your-say/">Have your say</a></li>
+            <li><a href="https://www.qld.gov.au/about/staying-informed/">Staying informed</a></li>
+            <li><a href="https://www.qld.gov.au/about/government-jobs/">Government jobs</a></li>
+            <li><a href="https://www.qld.gov.au/about/how-government-works/">How government works</a></li>
+            <li><a href="https://data.qld.gov.au/">Queensland Government data</a></li>
+            <li><a href="https://publications.qld.gov.au/">Queensland Government publications</a></li>
+            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">Government employees</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>
+            <a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a>
+            <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-for-qld" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
+        </h3>
+        <ul class="col-2 collapse"  id="footer-info-for-qld">
+            <li><a href="https://www.qld.gov.au/transport/">Transport and motoring</a></li>
+            <li><a href="https://www.qld.gov.au/jobs/">Employment and jobs</a></li>
+            <li><a href="https://www.qld.gov.au/housing/">Homes and housing</a></li>
+            <li><a href="https://www.qld.gov.au/education/">Education and training</a></li>
+            <li><a href="https://www.qld.gov.au/community/">Community support</a></li>
+            <li><a href="https://www.qld.gov.au/health/">Health and wellbeing</a></li>
+            <li><a href="https://www.qld.gov.au/emergency/">Emergency services and safety</a></li>
+            <li><a href="https://www.qld.gov.au/about/">About Queensland and its government</a></li>
+            <li><a href="https://www.qld.gov.au/families/">Parents and families</a></li>
+            <li><a href="https://www.qld.gov.au/disability/">People with disability</a></li>
+            <li><a href="https://www.qld.gov.au/seniors/">Seniors</a></li>
+            <li><a href="https://www.qld.gov.au/atsi/">Aboriginal and Torres Strait Islander peoples</a></li>
+            <li><a href="https://www.qld.gov.au/youth/">Youth</a></li>
+            <li><a href="https://www.qld.gov.au/environment/">Environment, land and water</a></li>
+            <li><a href="https://www.qld.gov.au/law/">Your rights, crime and the law</a></li>
+            <li><a href="https://www.qld.gov.au/recreation/">Recreation, sport and arts</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>
+            <a href="http://www.business.qld.gov.au/">Business and industry</a>
+            <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-bi" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
+        </h3>
+        <ul class="collapse" id="footer-info-bi">
+          <li><a href="https://www.business.qld.gov.au/starting-business">Starting a business</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business">Running a business</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business/employing">Employing people</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business/employing/payroll-tax">Payroll tax</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries">Industries</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest">Investing in Queensland</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/chinese-s" lang="zh">昆士兰州的投资机会</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/chinese-t" lang="zh">昆士蘭州的投資機會</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/japanese" lang="ja">クイーンズランド州への投資機会</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/korean" lang="ko">퀸즈랜드 투자 기회</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/invertir-turismo" lang="sp">Oportunidades de inversión en Queensland</a></li>
+        </ul>
+    </div>
+
+</div>
+
+    <div class="qg-legal row">
+	<ul class="list-inline">
+		<li><a href="https://www.qld.gov.au/contact-us/" class="no-print">Contact us</a></li>
+		<li><a href="https://www.qld.gov.au/help/" class="no-print">Help</a></li>
+		<li><a href="https://www.qld.gov.au/legal/copyright/">Copyright</a></li>
+		<li><a href="https://www.qld.gov.au/legal/disclaimer/">Disclaimer</a></li>
+		<li><a href="https://www.qld.gov.au/legal/privacy/">Privacy</a></li>
+		<li><a href="https://www.qld.gov.au/right-to-information/">Right to information</a></li>
+		<li><a href="https://www.qld.gov.au/help/accessibility/" class="no-print">Accessibility</a></li>
+		<li><a href="http://www.smartjobs.qld.gov.au/" class="no-print">Jobs in Queensland Government</a></li>
+		<li id="link-languages"><a href="https://www.qld.gov.au/languages/" class="no-print">Other languages</a></li>
+	</ul>
+  <p class="qg-copyright">&copy; The State of Queensland <span id="qg-copyright-owner"></span><span id="qg-copyright-daterange"></span></p>
+	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
+</div>
+
+  </footer>
+</div>
+
+<script>
+  var qg = qg || {};
+  qg.swe = qg.swe || {};
+  // Used by the feedback form.
+  qg.swe.franchiseTitle = 'Franchise Title';
+</script>
+</script>>
+
+<!--external lib  (includes butterfly, markdown, generate-id)-->
+<script src="https://static.qgov.net.au/assets/v3.1/latest/lib/all-ext-min.js"></script>
+
+<!-- Require main javascript -->
+<!--<script src="/assets/v3/js/qg-env.js"></script>-->
+<script src="https://static.qgov.net.au/assets/v3.1/latest/js/qg-main.js"></script>
+
+
+</body>
+
+</html>

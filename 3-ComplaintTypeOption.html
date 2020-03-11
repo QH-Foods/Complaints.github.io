@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>Food safety complaint | Complaint type</title>
+
+  <meta name="description" content="DESCRIPTION">
+  <meta name="keywords" content="KEYWORDS">
+
+  <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
+  <link rel="schema.AGLSTERMS" href="http://www.agls.gov.au/agls/terms/">
+
+  <meta name="DCTERMS.creator" scheme="AGLSTERMS.GOLD" content="c=AU; o=The State of Queensland; ou=DEPARTMENT NAME; ou=UNIT NAME">
+  <meta name="DCTERMS.publisher" scheme="AGLSTERMS.AglsAgent" content="corporateName=The State of Queensland; jurisdiction=Queensland">
+  <meta name="DCTERMS.created" content="2010-11-04">
+  <meta name="DCTERMS.modified" content="2011-03-05">
+  <meta name="DCTERMS.title" content="Add your heading">
+  <meta name="DCTERMS.alternative" content="Add your heading">
+  <meta name="DCTERMS.description" content="DESCRIPTION">
+  <meta name="DCTERMS.subject" scheme="AGLSTERMS.APAIS" content="SUBJECT">
+  <meta name="AGLSTERMS.function" scheme="AGLSTERMS.AGIFT" content="FUNCTION">
+  <meta name="DCTERMS.type" scheme="DCTERMS.DCMIType" content="Text">
+  <meta name="AGLSTERMS.documentType" scheme="AGLSTERMS.agls-document" content="guidelines">
+  <meta name="DCTERMS.audience" scheme="AGLSTERMS.agls-audience" content="">
+  <meta name="DCTERMS.jurisdiction" scheme="AGLSTERMS.AglsJuri" content="Queensland">
+
+  <!-- Open graph -->
+  <meta property="og:title" content="Queensland Government">
+  <meta property="og:description" content="DESCRIPTION">
+  <meta property="og:image" content="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="article" /> 
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Queensland Government" />
+  <meta name="twitter:description" content="DESCRIPTION" />
+  <meta name="twitter:image" content="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/coa-thumbnail.png" />
+
+  <meta name="DCTERMS.license" scheme="DCTERMS.URI" content="https://creativecommons.org/licenses/by/4.0/">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="https://static.qgov.net.au/assets/v3.1/latest/images/favicon.ico">
+
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
+
+<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-main.css" rel="stylesheet" type="text/css" media="all">
+
+<noscript>
+	<link href="https://static.qgov.net.au/assets/v3.1/latest/css/qg-noscript.css" rel="stylesheet" type="text/css" media="all">
+</noscript>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<!-- STYLESHEETS ADDED IN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="css/QH-checkbox.css" rel="stylesheet">
+
+<!-- Style for additional red alert-->
+<style>
+   .alert-halt {
+    border-left: 5px solid #B90824;
+    background-color:#ffeded;
+    margin: 0px;
+    padding: 15px;
+    border-radius: 0;
+    font-weight: normal;
+    color: #000;
+   }
+</style>
+
+<!-- SCRIPTS ADDED IN -->
+<script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-replace-svg="nest"></script>
+
+
+<!-- Script for on change of complaint type -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#ComplaintTypeList').change(function() {
+      $('div.ComplaintType').hide();
+      $('div.ComplaintSubType').hide();
+      $('div.StillProceed').hide();
+      $('#' + $(this).val()).show();
+      document.getElementById("AllergyComplaintSubTypeList").value = "";
+      document.getElementById("AllergyStillProceedQuestion-yes").checked = false;
+      document.getElementById("AllergyStillProceedQuestion-no").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-yes").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-no").checked = false;
+      document.getElementById("PracticeComplaintSubTypeList").value = "";
+      document.getElementById("PracticeStillProceedQuestion-yes").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-no").checked = false;
+      document.getElementById("LabelComplaintSubTypeList").value = "";
+      document.getElementById("LabelStillProceedQuestion-yes").checked = false;
+      document.getElementById("LabelStillProceedQuestion-no").checked = false;
+      document.getElementById("QualityComplaintSubTypeList").value = "";
+      document.getElementById("QualityStillProceedQuestion-yes").checked = false;
+      document.getElementById("QualityStillProceedQuestion-no").checked = false;
+    }).change(); 
+  });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('#ComplaintType').click(function(){
+        $('div.ComplaintType').hide();
+        $('div.ComplaintSubType').hide();
+        $('div.StillProceed').hide();
+
+        var selectedValue = $("input[name='ComplaintType']:checked").val();
+        alert("Selected value is " + '#' + selectedValue);
+        // $('#' + selectedValue).show();
+
+        switch (selectedvalue) {
+            case "Allergy":
+              $("#Allergy").show();
+              break;
+            case "Label":
+              $("#Label").show();
+              break;
+            case "Licence":
+              $("#Licence").show();
+              break;
+            case "ForeignMatter":
+              $("#ForeignMatter").show();
+              break;
+            case "Poisoning":
+              $("#Poisoning").show();
+              break;
+            case "Practice":
+              $("#Practice").show();
+              break;
+            case "Quality":
+              $("#Quality").show();
+              break;            
+            case "Other":
+              $("#Other").show();
+              break;   
+            default:
+              alert("Error in selecting an complaint type");
+              break;
+          }
+
+        document.getElementById("AllergyComplaintSubTypeList").value = "";
+        document.getElementById("AllergyStillProceedQuestion-yes").checked = false;
+        document.getElementById("AllergyStillProceedQuestion-no").checked = false;
+        document.getElementById("LicenceStillProceedQuestion-yes").checked = false;
+        document.getElementById("LicenceStillProceedQuestion-no").checked = false;
+        document.getElementById("PracticeComplaintSubTypeList").value = "";
+        document.getElementById("PracticeStillProceedQuestion-yes").checked = false;
+        document.getElementById("PracticeStillProceedQuestion-no").checked = false;
+        document.getElementById("LabelComplaintSubTypeList").value = "";
+        document.getElementById("LabelStillProceedQuestion-yes").checked = false;
+        document.getElementById("LabelStillProceedQuestion-no").checked = false;
+        document.getElementById("QualityComplaintSubTypeList").value = "";
+        document.getElementById("QualityStillProceedQuestion-yes").checked = false;
+        document.getElementById("QualityStillProceedQuestion-no").checked = false;
+
+        });
+    });
+  </script> 
+
+<!--Script for on change of Food Allergy / Allergy reaction complaint subtype list-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#AllergyComplaintSubTypeList').change(function() {
+      $('div.ComplaintSubType').hide();
+      $('div.StillProceed').hide();
+      $('#' + $(this).val()).show();
+      document.getElementById("AllergyStillProceedQuestion-yes").checked = false;
+      document.getElementById("AllergyStillProceedQuestion-no").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-yes").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-no").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-yes").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-no").checked = false;
+      document.getElementById("LabelStillProceedQuestion-yes").checked = false;
+      document.getElementById("LabelStillProceedQuestion-no").checked = false;
+      document.getElementById("QualityStillProceedQuestion-yes").checked = false;
+      document.getElementById("QualityStillProceedQuestion-no").checked = false;
+    }).change(); 
+  });
+</script>
+
+<!-- Script for on change of complaint sub type -->
+
+<!--Script for on change of Food Handling Practice, Hygeine and Business Cleanliness complaint subtype list-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#PracticeComplaintSubTypeList').change(function() {
+      $('div.ComplaintSubType').hide();
+      $('div.StillProceed').hide();
+      $('#' + $(this).val()).show();
+      document.getElementById("AllergyStillProceedQuestion-yes").checked = false;
+      document.getElementById("AllergyStillProceedQuestion-no").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-yes").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-no").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-yes").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-no").checked = false;
+      document.getElementById("LabelStillProceedQuestion-yes").checked = false;
+      document.getElementById("LabelStillProceedQuestion-no").checked = false;
+      document.getElementById("QualityStillProceedQuestion-yes").checked = false;
+      document.getElementById("QualityStillProceedQuestion-no").checked = false;
+    }).change(); 
+  });
+</script>
+
+<!--Script for on change of Food Label complaint subtype list-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#LabelComplaintSubTypeList').change(function() {
+      $('div.ComplaintSubType').hide();
+      $('div.StillProceed').hide();
+      $('#' + $(this).val()).show();
+      document.getElementById("AllergyStillProceedQuestion-yes").checked = false;
+      document.getElementById("AllergyStillProceedQuestion-no").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-yes").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-no").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-yes").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-no").checked = false;
+      document.getElementById("LabelStillProceedQuestion-yes").checked = false;
+      document.getElementById("LabelStillProceedQuestion-no").checked = false;
+      document.getElementById("QualityStillProceedQuestion-yes").checked = false;
+      document.getElementById("QualityStillProceedQuestion-no").checked = false;
+    }).change(); 
+  });
+</script>
+
+<!--Script for on change of Food Quality complaint subtype list-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#QualityComplaintSubTypeList').change(function() {
+      $('div.ComplaintSubType').hide();
+      $('div.StillProceed').hide();
+      $('#' + $(this).val()).show();
+      document.getElementById("AllergyStillProceedQuestion-yes").checked = false;
+      document.getElementById("AllergyStillProceedQuestion-no").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-yes").checked = false;
+      document.getElementById("LicenceStillProceedQuestion-no").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-yes").checked = false;
+      document.getElementById("PracticeStillProceedQuestion-no").checked = false;
+      document.getElementById("LabelStillProceedQuestion-yes").checked = false;
+      document.getElementById("LabelStillProceedQuestion-no").checked = false;
+      document.getElementById("QualityStillProceedQuestion-yes").checked = false;
+      document.getElementById("QualityStillProceedQuestion-no").checked = false;
+    }).change(); 
+  });
+</script>
+
+<!-- Script for on selecting whether to continue with complaint or not-->
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('input[type="radio"]').click(function(){
+        var selectedvalue = $(this).val(); 
+          $("div.StillProceed").hide();
+          $("#"+selectedvalue).show();
+      });
+  });
+</script> 
+
+<!-- Script to set Complaint Type/SubType session values and go to next page -->
+<script>
+  function nextPage() {
+    // Save the complaint type
+    var complaint_type = document.getElementById("ComplaintTypeList").value;
+    sessionStorage.setItem("complaint_type", complaint_type);
+    //alert("Complaint type " + complaint_type);
+
+    // Save the complaint subtype
+    switch(complaint_type) {
+      case "Allergy":
+        var complaintSubType = $("#AllergyComplaintSubTypeList option:selected").text();
+        sessionStorage.setItem("complaint_sub_type", complaintSubType);
+        break;
+      case "Practice":
+       var complaintSubType = $("#PracticeComplaintSubTypeList option:selected").text();
+       sessionStorage.setItem("complaint_sub_type", complaintSubType);
+       break;
+      case"Label":
+        var complaintSubType = $("#LabelComplaintSubTypeList option:selected").text();
+        sessionStorage.setItem("complaint_sub_type", complaintSubType);
+        break;
+      case"Quality":
+        var complaintSubType = $("#QualityComplaintSubTypeList option:selected").text();
+        sessionStorage.setItem("complaint_sub_type", complaintSubType);
+        break;
+      default:
+        var complaintSubType = "Not selected";
+        sessionStorage.setItem("complaint_sub_type", complaintSubType);
+        break;
+      }
+          
+      var pageName = ("4-ComplaintDetails" + complaint_type + ".html");
+      //alert(complaint_type + ": " + complaintSubType + "going to page: " + pageName);
+      window.open(pageName, "_self");
+  }
+</script>
+
+</head>
+
+<body data-qg-accessibility="true">
+
+  <section id="qg-access" role="navigation" aria-labelledby="landmark-label">
+    <h2 id="landmark-label" tabindex="0">Skip links and keyboard navigation</h2>
+    <ul>
+      <li><a id="skip-to-content" href="#qg-primary-content">Skip to content</a></li>
+      <li id="access-instructions"><a href="https://www.qld.gov.au/help/keyboard#section-aria-keyboard-navigation">Use tab and cursor keys to move around the page (more information)</a></li>
+    </ul>
+  </section>
+
+<!-- Page body-->
+<div class="container-fluid qg-site-width">
+    
+  <!-- Page header-->
+  <header id="qg-site-header">
+
+  <!-- Message for prototype - this will not be displayed in the final design-->
+  <div class="alert alert-danger qg-noicon">
+    <header text-align="centre" vertical-align="middle">
+      <h2>Food Safety Complaint Prototype</h2>
+      </header>
+    <section text-align="centre" vertical-align="middle">
+      <p>Internal use only.  This is a prototype of the proposed online food safety complaint form.  
+      This banner will not be shown in the final product.</p>
+    </section>
+  </div>
+
+    <!-- Queensland Government Logo-->
+    <div class="qg-coat-of-arms col-xs-6 col-md-4">
+      <a href="//www.qld.gov.au" tabindex="0">
+        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
+        <img src="https://static.qgov.net.au/assets/v3.1/latest/images/coat-of-arms/qg-coa-stacked.svg" alt="Queensland Government" class="hidden-md hidden-lg">
+      </a>
+    </div>
+
+
+    <!-- Contact us and search -->
+    <ul class="qg-utilities list-inline col-xs-6 col-md-5">
+      <li>
+          <a href="https://www.qld.gov.au/contact-us/"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span><span class="hidden-xs hidden-sm">Contact us</span></a>
+      </li>
+
+      <li class="hidden-md hidden-lg">
+          <button id="qg-show-search"
+                  aria-label="Search"
+                  data-toggle="collapse"
+                  data-target="#qg-search-form"><span class="fa fa-search fa-2x" aria-hidden="true"></span>
+          </button>
+      </li>
+      <li class="hidden-md hidden-lg">
+          <button id="qg-show-menu"
+                  aria-label="Menu"
+                  data-toggle="collapse"
+                  data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span>
+            </button>
+      </li>
+    </ul>
+    <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3 qg-web-autocomplete">
+      <div class="input-group">
+        <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
+        <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
+        <span class="input-group-btn">
+          <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
+        </span>
+      </div>
+      
+      <!--parameters to display results on search page-->
+      <input type="hidden" name="num_ranks" value="10">
+      <input type="hidden" name="tiers" value="off">
+      <input type="hidden" name="collection" value="qld-gov">
+      <input type="hidden" name="profile" value="qld">
+    </form>
+
+
+  <!-- Links For Queenslanders, Business and industry, Government employees-->  
+  <nav id="qg-site-nav" role="navigation" aria-label="Main navigation" class="collapse">
+    <ul>
+      <li><a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a></li>
+      <li><a href="https://www.business.qld.gov.au/">Business and industry</a></li>
+      <li><a href="https://www.forgov.qld.gov.au/">Government employees</a></li>
+    </ul>
+  </nav>
+
+  </header>
+
+  <!-- Page content-->
+  <div id="qg-content">
+    <div id="qg-two-col-nav" class="row wide">
+
+      <!-- Breadcrumbs-->
+      <nav id="qg-breadcrumb" role="navigation" aria-label="breadcrumb navigation" aria-labelledby="breadcrumb-heading" class="collapse">
+        <h2 id="breadcrumb-heading" class="qg-visually-hidden">You are here:</h2>
+        <ol class="list-inline">
+            <li><a href="https://www.qld.gov.au">Queensland Government home</a></li>
+            <li><a href="https://www.business.qld.gov.au/">Business and industry</a></li>
+            <li><a href="1-Home.html">The Food Pantry</a></li>
+            <li>Make a food safety complaint</li>
+        </ol>
+      </nav>
+
+      <!-- Main content-->
+      <div id="qg-primary-content" role="main">
+        <h1>Food complaint</h1>
+        
+        <form id="ComplaintTypeForm">
+          
+          <!---------------------------------------------------------------------------------------------
+          COMPLAINT TYPE LIST
+          ----------------------------------------------------------------------------------------------->
+          <!-- Complaint type list-->
+          <div class="form-group" class="ComplaintList">
+            <label for="ComplaintTypeList">
+              <span class="lead">What is your complaint about?
+              <abbr title="(required)">*</abbr></span>
+            </label>
+            <select class="form-control" id="ComplaintTypeList">
+                <option class="placeholder" value="">Please select…</option>  
+                <option value="Allergy">Food allergy / allergic reaction</option>
+                <option value="Licence">Food business licence</option>
+                <option value="Practice">Food handling, hygiene or business cleanliness</option>
+                <option value="Label">Food label</option>
+                <option value="Poisoning">Food poisoning</option>
+                <option value="Quality">Food quality</option>
+                <option value="ForeignMatter">Foreign matter in food</option>
+                <option value="Other">Other</option>
+            </select>
+          </div>
+
+          
+        <div class="container">
+            <div class="radio-tile-group" id="ComplaintType">
+                <div class="input-container">
+                    <input id="Poisoning" class="radio-button" type="radio" name="ComplaintType" value="Poisoning"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="fas fa-frown fa-4x"></i>
+                    </div>
+                    <label for="Poisoning" class="radio-tile-label">Food poisoning</label>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <input id="Allergy" class="radio-button" type="radio" name="ComplaintType" value="Allergy" />
+                    <div class="radio-tile">
+                        <div class="icon">
+                        <i class="fas fa-allergies fa-4x"></i>
+                        </div>
+                        <label for="Allergy" class="radio-tile-label">Food allergies</label>
+                    </div>
+                </div>
+
+
+                <div class="input-container">
+                    <input id="Practice" class="radio-button" type="radio" name="ComplaintType" value="Practice"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="fas fa-sign-language fa-4x"></i>
+                    </div>
+                    <label for="Practice" class="radio-tile-label">Hygiene and cleanliness</label>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <input id="Label" class="radio-button" type="radio" name="ComplaintType" value="Label"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="fas fa-tag fa-4x"></i>
+                    </div>
+                    <label for="Label" class="radio-tile-label">Food label</label>
+                    </div>
+                </div>
+
+
+
+                <div class="input-container">
+                    <input id="ForeignMatter" class="radio-button" type="radio" name="ComplaintType" value="ForeignMatter"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="fas fa-bug fa-4x"></i>
+                    </div>
+                    <label for="ForeignMatter" class="radio-tile-label">Foreign matter in food</label>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <input id="Quality" class="radio-button" type="radio" name="ComplaintType" value="Quality"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="fas fa-utensils fa-4x"></i>
+                    </div>
+                    <label for="Quality" class="radio-tile-label">Food quality</label>
+                    </div>
+                </div>  
+
+                <div class="input-container">
+                    <input id="Licence" class="radio-button" type="radio" name="ComplaintType" value="Licence"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="far fa-file-alt fa-4x"></i>
+                    </div>
+                    <label for="Licence" class="radio-tile-label">Food business licence</label>
+                    </div>
+                </div>
+
+
+                <div class="input-container">
+                    <input id="Other" class="radio-button" type="radio" name="ComplaintType" value="Other"/>
+                    <div class="radio-tile">
+                    <div class="icon">
+                        <i class="far fa-question-circle fa-4x"></i>
+                    </div>
+                    <label for="Other" class="radio-tile-label">Other</label>
+                    </div>
+                </div>
+            </div>
+         </div>
+          <br>
+
+
+          <!---------------------------------------------------------------------------------------------
+          COMPLAINT TYPE DETAILS
+          ----------------------------------------------------------------------------------------------->
+          <!-- COMPLAINT TYPE DETAILS -->
+          <!-- Complaint Type = "Food allergy / allergic reaction"-->
+          <div id="Allergy" class="ComplaintType">  
+            <div class="form-group">
+              <label for="AllergyComplaintSubTypeList">
+                <span class="lead">What is your main concern?
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <select class="form-control" id="AllergyComplaintSubTypeList">
+                  <option class="placeholder" value="">Please select…</option>  
+                  <option value="AllergyPreparation">Food was not prepared or handled safely for food allergies</option>
+                  <option value="AllergyLabelling">Food label has incorrect information for food allergies</option>
+              </select>
+            </div>
+          </div>  
+
+          <!-- Complaint Type = "Food business licence"-->
+          <div id="Licence" class="ComplaintType">  
+            <div class="alert alert-info" role="alert">
+              <p>Use this complaint type to report:
+              </p>
+              <ul>
+                <li> A food business that is not licensed </li>
+                <li> A food business that is not displaying a current licence</li>
+              </ul>
+            </div>
+            <br>
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Before you continue</h4>
+              <p>Not all food businesses in Queensland need a licence. A food business does not need a licence for the sale of:</p>
+                <ul>
+                  <li>packaged food</li>
+                  <li>whole fruit and vegetables</li>
+                  <li>drinks (except fruit and vegetable juice processed on site)</li>  
+                  <li>ice, including flavoured ice</li>
+                  <li>seeds, spices, dried herbs, tea leaves, coffee or ground coffee</li>
+                  <li>unpackaged snack food (for example, confectionary, potato chips, corn chips or nuts)</li>
+                  <li>food sold by non-profit organisations for fundraising (for example, sausage sizzle or cake stall)</li>
+                  <li>food provided at state government run facilities (for example, a public hospital or state school)</li> 	
+                </ul>
+              <p>Licensed food businesses are required by law to display their licence or a copy of their licence so that customers can easily see it. 
+                The expiry date is shown on the licence so you can see if the licence is current.
+              </p>
+            </div>
+            <br>
+            
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="LicenceStillProceedQuestion" id="LicenceStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="LicenceStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="LicenceStillProceedQuestion" id="LicenceStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="LicenceyStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- Complaint Type = "Food handling practice, hygiene or business cleanliness"-->              
+          <div id="Practice" class="ComplaintType">
+   
+            <div class="form-group">
+              <label for="PracticeComplaintSubTypeList">
+                <span class="lead">What is your main concern?
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <select class="form-control" id="PracticeComplaintSubTypeList">
+                  <option class="placeholder" value="">Please select…</option>  
+                  <option value="PracticeAnimals">Animals in the food business</option>
+                  <option value="PracticeCleanliness">Dirty or damaged premise or equipment</option>
+                  <option value="PracticeHygeine">Food handler hygiene </option>
+                  <option value="PracticeAllergens">Food was not prepared safely for food allergies</option>
+                  <option value="PracticePests">Pests and vermin</option>
+                  <option value="PracticeService">Poor customer service</option>
+                  <option value="PracticeOther">Other</option>
+                </select>
+              </div>
+          </div>
+
+          <!-- Complaint Type = "Food labelling"-->   
+          <div id="Label" class="ComplaintType">
+          
+            <div class="form-group">
+              <label for="LabelComplaintSubTypeList">
+                <span class="lead">What is your main concern?
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <select class="form-control" id="LabelComplaintSubTypeList">
+                  <option class="placeholder" value="">Please select…</option>  
+                  <option value="LabelAllergens">Allergens</option>
+                  <option value="LabelCountryOfOrigin">Country of origin</option>
+                  <option value="LabelFalseMisleadingClaims">False or misleading claims</option>
+                  <option value="LabelFoodId">Food name and description</option>
+                  <option value="LabelHealthStar">Health star rating</option>
+                  <option value="LabelIngredients">Ingredients</option>
+                  <option value="LabelStatements">Mandatory warning or advisory statements </option>
+                  <option value="LabelMenuBoards">Menu boards</option>
+                  <option value="LabelAlteration">Missing, removed or altered label</option>
+                  <option value="LabelNIP">Nutrition information panel</option>
+                  <option value="LabelNutritionHealthClaims">Nutrition or health claims</option>
+                  <option value="LabelOrganicClaims">Organic / free-range / palm-oil claims</option>
+                  <option value="LabelDirections">Storage conditions and directions for use</option>
+                  <option value="LabelSupplier">Supplier name and address</option>
+                  <option value="LabelDateMark">Use-by or best-before date</option>
+                  <option value="LabelVitamins">Vitamins and other supplements</option>
+                  <option value="LabelWeightsMeasures">Weights and other measures</option>
+                  <option value="LabelOther">Other</option>
+                </select>
+              </div>
+          </div>
+
+          <!-- Complaint Type = "Food poisoning"-->   
+          <div id="Poisoning" class="ComplaintType">
+            <div class="alert alert-info" role="alert">
+               <p>The common symptoms of food poisoning include fever, headache, nausea, vomiting, abdominal cramps or diarrhoea. 
+                 These may start within hours of eating but can sometimes take days or weeks before you being to feel sick.</p> 
+            </div>
+            <br>
+
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+          <!-- Complaint Type = "Food quality"-->   
+          <div id="Quality" class="ComplaintType">
+ 
+            <div class="form-group">
+              <label for="QualityComplaintSubTypeList">
+                <span class="lead">What is your main concern?
+                <abbr title="(required)">*</abbr></span>
+              </label>
+              <select class="form-control" id="QualityComplaintSubTypeList">
+                  <option class="placeholder" value="">Please select…</option>  
+                  <option value="QualityPackaging">Damaged or deteriorated packaging</option>
+                  <option value="QualityIngredientNotRemoved">Food contained an ingredient that was asked to be removed</option>
+                  <option value="QualityIngredientVolume">Food did not have the expected amount of the main ingredient </option>
+                  <option value="QualityFood">Food did not have the expected taste, texture, smell, colour or consistency</option>
+                  <option value="QualityIngredientIncluded">Food had an ingredient that is not allowed in food</option>
+                  <option value="QualityTemperature">Food was not hot or cold as expected</option>
+                  <option value="QualityVitamins">Vitamins and other supplements</option>
+                  <option value="QualityOther">Other</option>
+              </select>
+            </div>
+    
+          </div>
+          
+          <!-- Complaint Type = "Foreign matter in food"-->   
+          <div id="ForeignMatter" class="ComplaintType">
+            <div class="alert alert-info" role="alert">
+              <p>Foreign matter is defined as anything introduced to a food product at any point in its production or distribution that you believe doesn’t belong there. 
+                Foreign matter is usually as a result of a breakdown in the processing or handling of the food and is not intentional. 
+                Investigation is usually required to work out how the object got into the food.</p>
+              </div>
+            <br>
+            <div class="alert alert-warning" role="alert">
+              <h3><i class="fa fa-exclamation-triangle"></i>&nbsp Intentional contamination</h3>
+              <p>If you suspect a food product has been <strong>intentionally</strong> contaminated call 13 HEALTH (13 43 25 84).</p>
+              <p><strong>Intentional</strong> contamination of food means contamination by a person who intends to contaminate the food, 
+                including by adding, mixing or putting a harmful or poisonous substance or thing into the food. </p>
+            </div>
+            <br>
+
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+          <!-- Complaint Type = "Other"-->   
+          <div id="Other" class="ComplaintType">
+            <div class="alert alert-info" role="alert">
+              <p>Use this complaint type if your complaint does not fit into another category.</p>
+              </div>
+            <br>
+          
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+
+          <!---------------------------------------------------------------------------------------------
+          COMPLAINT SUBTYPE DETAILS
+          ----------------------------------------------------------------------------------------------->
+          <!---------------------------------------------------------------------------------------------
+          ----- Food allergy / allergic reaction
+          ----------------------------------------------------------------------------------------------->
+          <!-- Complaint Type: "Food allergy / allergic reaction", Complaint SubType: "Food was not prepared or handled safely for food allergies" -->
+          <div id="AllergyPreparation" class="ComplaintSubType">  
+            <div class="alert alert-info" role="alert">
+              <p>Use this complaint type when you asked the food handler to prepare or handle your food so that the food was safe for your food allergies. </p>
+              <p>You should always tell a food business about your food allergies when ordering food. The food business should tell you:
+              </p>   
+                <ul>
+                  <li>If the food is safe for you to eat</li>
+                  <li>If the food contains ingredients or has been handled in a way that is unsafe for your food allergies</li>
+                  <li>When they are not able to make or handle the food safely for your food allergies.  </li>
+                </ul> 
+            </div>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+            
+          </div>
+
+          <!-- Complaint Type: "Food allergy / allergic reaction", Complaint SubType: "Food label is missing, incorrect or unclear for allergens" -->
+          <div id="AllergyLabelling" class="ComplaintSubType">  
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Before you continue</h4>
+              <p>The only allergens that must be shown on a label are:</p>
+                <ul>
+                  <li>cereals containing gluten namely, wheat, rye, barley, oats and spelt</li>
+                  <li>crustacea</li>  
+                  <li>egg</li>
+                  <li>fish</li>
+                  <li>milk</li>
+                  <li>peanuts</li>
+                  <li>sesame seeds</li>
+                  <li>soybeans</li> 	
+                  <li>tree nuts (other than coconut)</li>
+                  <li>lupin</li>
+                  <li>added sulphites in concentrations of 10mg/kg or more</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="AllergyStillProceedQuestion" id="AllergyStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="AllergyStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="AllergyStillProceedQuestion" id="AllergyStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="AllergyStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>
+           </div>
+ 
+          <!---------------------------------------------------------------------------------------------
+          ----- Food handling, hygiene or business cleanliness
+          ----------------------------------------------------------------------------------------------->
+           <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Animals in the food business" -->
+          <div id="PracticeAnimals" class="ComplaintSubType">  
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Before you continue</h4>
+              <span>
+                <p>A food business can choose to allow dogs and other pets in outdoor areas. Read more about the 
+                   <a href="https://www.health.qld.gov.au/public-health/industry-environment/food-safety/requirements/animals/default.asp">
+                    responsibilities of businesses that allow animals in food premises.</a>
+                </p>  
+               </span>
+               <p>Assistance animals (for example, guide dogs) are allowed in indoor and outdoor areas.  </p>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="PracticeStillProceedQuestion" id="PracticeStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="PracticeStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="PracticeStillProceedQuestion" id="PracticeStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="PracticeStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Dirty or damaged premise or equipment" -->
+          <div id="PracticeDeterioration" class="ComplaintSubType">  
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>  
+
+          <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Food handler hygeine" -->
+          <div id="PracticeHygeine" class="ComplaintSubType">  
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-mitten"></i>&nbsp Tongs, gloves and hairnets</h4>
+              <p>Food handlers do not have to use tongs or wear gloves or hairnets when handling food.
+              </p>
+              <p>All food handlers must prevent the contamination of food, but how they do this is up to them. 
+                For example, if they wash their hands regularly, in between tasks and each time they handle food, they don’t need to wear gloves.                 
+              </p>
+              <span>
+                <p>For further information read about the  
+                <a href="http://www.foodstandards.gov.au/consumer/safety/faqsafety/Pages/foodsafetyfactsheets/healthandhygieneresp101.aspx">Responsibilities of food handlers.</a>
+                </p>  
+              </span>
+            </div>
+            <br>
+
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-shoe-prints"></i>&nbsp; Footwear</h4>
+              <span>
+                <p>Workplace Health and Safety Queensland are responsible for the regulation of hazards in a workplace and how to prevent workers being injured through suitable controls, for example non-slip footwear. 
+                </p>
+
+                <p>Complaints relating to the footwear of a food handler cannot be investigated by Queensland Health and should be reported directly to the OLGR through their  
+                <a href="https://www.justice.qld.gov.au/about-us/services/liquor-gaming">website</a>.
+                </p>
+                </span>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="PracticeStillProceedQuestion" id="PracticeStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="PracticeStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="PracticeStillProceedQuestion" id="PracticeStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="PracticeStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>
+          </div>
+
+         <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Food was not prepared safely for food allergies" -->
+         <div id="PracticeAllergens" class="ComplaintSubType">  
+          <div class="alert alert-info" role="alert">
+            <p>Use this complaint type when you asked the food handler to prepare or handle your food so that the food was safe for your food allergies. </p>
+            <p>You should always tell a food business about your food allergies when ordering food. The food business should tell you:
+            </p>   
+              <ul>
+                <li>If the food is safe for you to eat</li>
+                <li>If the food contains ingredients or has been handled in a way that is unsafe for your food allergies</li>
+                <li>When they are not able to make or handle the food safely for your food allergies.  </li>
+              </ul> 
+          </div>
+          <br>
+
+          <!-- Page buttons -->
+          <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+          <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+          <a href="1-Home.html">Cancel</a>
+          <br>
+          <br>
+        </div>
+
+          <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Food not received, stored, transported or displayed properly" -->
+          <div id="PracticeStorage" class="ComplaintSubType">  
+            <div class="alert alert-info" role="alert">
+              <p>Food must be protected from contamination and food that is potentially hazardous must be received, stored, displayed and transported at safe temperatures. Safe temperatures are 5°C or colder, or 60°C or hotter. For further information read about 
+              <a href="https://www.qld.gov.au/health/staying-healthy/environmental/food/poisoning/hazardous-foods">potentially hazardous foods</a>.
+              </p>
+          </div>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>            
+          
+          <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Pests (for example, rats, mice, cockroaches)" -->
+          <div id="PracticePests" class="ComplaintSubType">  
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>  
+
+          <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Poor customer service" -->
+          <div id="PracticeService" class="ComplaintSubType">  
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+              <p>Poor customer service, including missing food items or delivery through a third part delivery service, should be reported to the food business directly and cannot be investigated under the <i>Food Act 2006</i>. 
+              </p>
+            </div>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>  
+
+          <!-- Complaint Type: "Food handling, hygiene or business cleanliness", Complaint SubType: "Other" -->
+          <div id="PracticeOther" class="ComplaintSubType">  
+            <div class="alert alert-info" role="alert">
+              <p>Select this category if you have a concern regarding the food business premise, food handling or hygiene of a food handler that is not covered by another category.
+              </p>
+            </div>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>  
+
+          <!---------------------------------------------------------------------------------------------
+          ----- Food label
+          ----------------------------------------------------------------------------------------------->
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Allergens" -->
+          <div id="LabelAllergens" class="ComplaintSubType">
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Before you continue</h4>
+              <p>The only allergens that must be shown on a label are:</p>
+                <ul>
+                  <li>cereals containing gluten namely, wheat, rye, barley, oats and spelt</li>
+                  <li>crustacea</li>  
+                  <li>egg</li>
+                  <li>fish</li>
+                  <li>milk</li>
+                  <li>peanuts</li>
+                  <li>sesame seeds</li>
+                  <li>soybeans</li> 	
+                  <li>tree nuts (other than coconut)</li>
+                  <li>lupin</li>
+                  <li>added sulphites in concentrations of 10mg/kg or more</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="AllergyStillProceedQuestion" id="AllergyStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="AllergyStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="AllergyStillProceedQuestion" id="AllergyStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="AllergyStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>
+            <br>
+ 
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Country of origin" -->
+          <div id="LabelCountryOfOrigin" class="ComplaintSubType">
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+                <span>
+                  <p><img style="padding: 0 15px; float:left" src="img/CountryOfOriginLabel.png" alt="Image of Country of Origin label" width="12%" height="12%">
+                  </p>
+                    <p></p>Australia has mandatory country of origin labelling laws to help advise consumers quickly and easily where food is grown, produced, made or packed. </p>
+                  <p>These laws are regulated by the Australian Competition and Consumer Commission (ACCC). 
+                    If your complaint relates to country of origin labelling, contact the ACCC using the contact details on their   
+                  <a href="https://www.accc.gov.au/consumers/groceries/country-of-origin">website</a>.
+                  </p>
+                  <br>
+              </span> 
+            </div>     
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "False and misleading claim" -->
+          <div id="LabelFalseMisleadingClaims" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p>A label must not include words, statements, claims, pictures or graphics that represent a food or its characteristics in a way that is false, misleading or deceptive. 
+              </p>
+            </div> 
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Food name and description" -->
+          <div id="LabelFoodId" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>Food labels must show a food name. 
+                  For example, <em>strawberry yoghurt</em> must contain strawberries.  If the yoghurt contained strawberry flavouring rather than real fruit, 
+                  then the name should be called <em>strawberry-flavoured yoghurt</em>.
+                </p> 
+                <p>Food labels may also have a description to describe the food. If the name of the food does not reflect its true nature, 
+                  then a description should be included on the label. 
+                  For example, the food name <em>Luke’s Hot Sauce</em> not does reflect the true nature of the food. 
+                  A description should be added to the label to say that it is a <em>Red hot chilli pepper sauce</em>.
+                </p>
+            </div>              
+            <br>
+            <br>
+            
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+          
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Health Star Rating" -->
+          <div id="LabelHealthStar" class="ComplaintSubType">
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+              <span>  
+                <img style="padding: 0 15px; float:left" src="img/HealthStarRating.png" alt="Image of Health Star rating label" width="20%" height="20%">
+                <p>A health star rating is a rating system that assess the nutritional profile of packaged food and gives the food a rating from ½ star to 5 stars.
+                </p>
+                <p>The Australian Department of Health is responsible for handling any enquiries or complaints about the health star rating system.  
+                  If your complaint is about the health star rating on a label, contact the Australian Department of Health using the contact details from their 
+                  <a href="http://www.healthstarrating.gov.au/internet/healthstarrating/publishing.nsf/Content/Home">website</a>.
+                  </p>
+                </span> 
+            </div>     
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div> 
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Ingredients" -->
+          <div id="LabelIngredients" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>A food label must include a statement of ingredients, including any additives or alternative ingredients. 
+                </p>
+                <p>
+                  The ingredients must be listed in descending order of ingoing weight. 
+                  This means, if an ingredient is listed as the first ingredient in the list, then the food contains more of this ingredient than any other ingredient.
+                </p>
+             </div> 
+            <br>
+            <br>   
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>               
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Mandatory warning or advisory statements" -->
+          <div id="LabelStatements" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p>Some food must include warning or advisory statements on the label.
+              </p>
+              <p>For example, food containing royal jelly must be labelled with the statement: </p>
+              <p><em>
+                ‘This product contains royal jelly which has been reported to cause severe allergic reactions and in rare cases, fatalities, 
+                especially in asthma and allergy sufferers’.
+              </em></p>
+            </div>     
+            <br>
+            <br>
+            
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>         
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Menu boards" -->
+          <div id="LabelMenuBoards" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+               <p>Fast food chains in Queensland who sell standard food items at either 20 outlets in Queensland or 50 outlets in Australia are required to 
+                display the kilojoules of each standard food item for sale along with the statement:
+               </p> 
+               <p>
+                <em>‘the average adult daily energy intake is 8,700 kJ’</em>.
+               </p>
+            </div>  
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div>
+
+           <!-- Complaint Type: "Food Label", Complaint SubType: "Missing, removed or altered label" -->
+           <div id="LabelAlteration" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>	Food retailers must not alter, remove, erase, destroy or obscure the label on the package unless permission has been given by Queensland Health. 
+                </p>
+                <p>
+                  Packaged food can be re-labelled if the label containedhas incorrect information. The new label must be attached securely and completely cover the incorrect information.
+                </p>
+            </div>
+            <br>
+           
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-tag"></i>&nbsp; Some foods do not need a label</h4>
+              <p>Some food in Queensland may not need a label.   For example, when the food is:</p>
+              <ul>
+                <li>not in a package</li>
+                <li>sold at a fundraising event</li>
+                <li>packaged in the presence of the purchaser</li>
+                <li>made and packaged on the premises from where it is sold</li>
+                <li>delivered packaged and ready for consumption at the express order of the purchaser (for example, take away pizza), except when the food is sold from a vending machine</li>
+                <li>displayed in an assisted service display cabinet.</li>
+                <li>whole or cut fresh fruit and vegetables (other than seed sprouts or similar products) in a package that does not obscure their nature or quality</li>
+              </ul>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="LabelStillProceedQuestion" id="LabelStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="LabelStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="LabelStillProceedQuestion" id="LabelStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="LabelStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>
+    
+          </div>          
+           <!-- Complaint Type: "Food Label", Complaint SubType: "Nutrition information panel" -->
+          <div id="LabelNIP" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>A food label must include a nutrition information panel in a standard format and include details like 
+                  the serving size, energy, protein, fat (total and saturated), carbohydrates (and sugars) and sodium.
+                </p>
+            </div>              
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br> 
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Nutrition or health claim (including gluten free)" -->
+          <div id="LabelNutritionHealthClaims" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>Nutrition and health claims are voluntary statements made by food businesses on labels and in advertising about a food. 
+                  There are <a href="https://www.legislation.gov.au/Series/F2015L00394">strict rules</a> for food businesses choosing to make these claims.
+                  For example,
+                </p>
+                <ul>
+                  <li>Gluten free</li>
+                  <li>Low fat</li>
+                  <li>High in iron</li>
+                </ul>
+            </div>   
+            <br>
+            <br>
+ 
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Organic / free-range / palm-oil claims" -->
+          <div id="LabelOrganicClaims" class="ComplaintSubType">
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+              <span>
+                <p>Claims about a food being organic, free-range or related to palm-oil are regulated by the Australian Competition and Consumer Commission (ACCC). 
+                Complaints relating to these consumer claims cannot be investigated by Queensland Health and should be reported directly to the ACCC through their 
+                <a href="https://www.accc.gov.au/contact-us/contact-the-accc#for-consumers">website</a>.</p>
+                </span>
+            </div>    
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div>
+
+         <!-- Complaint Type: "Food Label", Complaint SubType: "Storage conditions and directions for use" -->
+         <div id="LabelDirections" class="ComplaintSubType">
+          <div class="alert alert-info" role="alert">
+              <p>The food label should include information about:
+              </p>
+              <ul>
+                <li>How to store food so that it keeps until its Best Before date or Use By date</li>
+                <li>How to prepare food so that it is safe to eat</li>
+              </ul> 
+          </div>              
+          <br>
+          <br>
+          
+          <!-- Page buttons -->
+          <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+          <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+          <a href="1-Home.html">Cancel</a>
+          <br>
+          <br>
+        </div>  
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Supplier name and address" -->
+          <div id="LabelSupplier" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p>The name and business address of the supplier must be included on the food label.  
+                A supplier of a food is the packer, manufacturer, vendor or importer of the food.
+              </p>
+              <p>
+                The business address must be a street address in Australia or New Zealand where the food business is food business is operating from.  
+              </p>
+            </div>              
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>  
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Use-by or best-before date" -->
+          <div id="LabelDateMark" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p><strong>Use By dates</strong> and <strong>Best Before dates</strong> are compulsory for all packaged food with a shelf life of 2 years or less. 
+                  
+              </p>
+              <p>
+                For bread with a shelf life of less than 7 days, the best before date may be replaced by a <strong>Baked For date</strong> or <strong>Baked On date</strong>. 
+              </p>
+              <p>
+                It is not safe to eat food after the <strong>Use By date</strong>. Food must not be sold after its <strong>Use By date</strong>. 
+                Foods with a <strong>Baked For date</strong>  can be sold and eaten past the <strong>Baked For date</strong> . 
+              </p>
+            </div>              
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>  
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Vitamins and other supplements" -->
+          <div id="LabelVitamins" class="ComplaintSubType">
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+              <span>
+                <p>The Therapeutic Goods Administration (TGA) is responsible for regulating vitamins and other supplements including herbal and traditional medicines.
+                </p>
+                <p>Complaints relating to these products cannot be investigated by Queensland Health and should be reported directly to the TGA through their 
+                  <a href="https://www.tga.gov.au/consumers">website</a>.</p>
+                </span>
+            </div>             
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Weights and other measures" -->
+          <div id="LabelWeightsMeasures" class="ComplaintSubType">
+            <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+              <span>
+                <p>The National Measurement Institute (NMI) is responsible for making sure food is measured and weighed correctly, 
+                  and that the food is labelled with the correct weight and unit. For example, food labelled as being 500g should weigh 500g. 
+                </p>
+                <p>Complaints relating to the weights and other measures on foods cannot be investigated by Queensland Health and should be reported directly to the NMI through their 
+                  <a href="https://www.industry.gov.au/regulations-and-standards/buying-and-selling-goods-and-services-by-weights-and-other-measures">website</a>.</p>
+                </span>
+            </div>       
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>   
+          </div>
+
+          <!-- Complaint Type: "Food Label", Complaint SubType: "Other" -->
+          <div id="LabelOther" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <h3><i class="material-icons"> info </i>&nbsp Did you know?</h3>
+              <span>
+                <p>Select this category if you have a concern regarding a food label that is not covered by another category. 	For example:
+                </p>
+                <ul>
+                  <li>language on the label (other than English)</li>
+                  <li>legibility</li>
+                  <li>novel foods</li>
+                  <li>irradiation of foods</li>
+                  <li>genetically modified and/or food produced using gene technology</li>
+                </ul>
+              </span>
+            </div>               
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+          
+          <!---------------------------------------------------------------------------------------------
+          ----- Food quality
+          ----------------------------------------------------------------------------------------------->
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Damaged or deteriorated packaging" -->
+          <div id="QualityPackaging" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p>
+                Damaged or deteriorated packaging may cause the food to come into contact with something that may contaminate or spoil the food. 
+                For example, food packaging that has been torn exposes the food to air causing mould to grow on the food.
+              </p>
+            </div>
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>  
+          </div>
+
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "The food contained an ingredient that was asked to be removed " -->
+          <div id="QualityIngredientNotRemoved" class="ComplaintSubType">
+            <div class="alert alert-warning" role="alert">
+              <h4><i class="fas fa-allergies"></i>&nbsp;Do you have food allergies?</h4>
+              <p>
+                <strong>If you have a food allergy:</strong>
+                You can ask a food handler to remove ingredients that you are allergic to.  
+                Use this complaint type when you asked for a food ingredient to be removed because of a food allergy. 
+              </p>
+              <p>
+                <strong>If you do not have a food allergy:</strong>
+                You can ask a food handler to remove ingredients that you are not allergic to. 
+                Discuss this complaint with the food business, as this may be an issue with their customer service or ordering system and does not impact the safety of the food.
+              </p>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <fieldset>
+                <label>
+                  <span class="lead">Do you want to continue?</span>
+                  <abbr title="(required)">*</abbr>
+                </label>
+                <ol class="questions">
+                  <ul class= "choices compact">
+                    <li>
+                      <input type="radio" name="QualityStillProceedQuestion" id="QualityStillProceedQuestion-yes" value="StillProceedYes" unchecked/>
+                      <label for="QualityStillProceedQuestion-yes">Yes</label>
+                    </li>
+                    <li><input type="radio" name="QualityStillProceedQuestion" id="QualityStillProceedQuestion-no" value="StillProceedNo" unchecked/>
+                      <label for="QualityStillProceedQuestion-no">No</label>
+                    </li>
+                  </ul>
+                </ol> 
+              </fieldset>
+            </div>  
+          </div>
+                    
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Food did not have the expected amount of the main ingredient" -->
+          <div id="QualityIngredientVolume" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>Some foods are required to have certain ingredients in order to be called a specific name. 
+                  For example, a meat pie is required to have a certain amount of meat in order for it to be called a meat pie.
+                </p>
+             </div>
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>  
+          </div>
+
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Food did not have the expected taste, texture, smell, colour or consistency" -->
+          <div id="QualityFood" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                 <p>Food that was ordered or purchased that does not have the expected look, feel or taste. 
+                  For example, you purchased a chocolate milk from a food business and when drinking it you noticed that it had a metallic taste and was very watery.
+                </p>
+            </div>
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+                    
+
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Food had an ingredient that is not allowed in food" -->
+          <div id="QualityIngredientIncluded" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+                <p>The Australia New Zealand Food Standards Code does not allow some ingredients to be included in food. 
+                  For example, some plants and fungi are not allowed in food. 
+                </p>
+            </div>
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Food was not hot or cold as expected" -->
+          <div id="QualityTemperature" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p>Food that is potentially hazardous must be kept and sold at safe temperatures. Safe temperatures are 5°C or colder, or 60°C or hotter. 
+                For further information read about <a href="https://www.qld.gov.au/health/staying-healthy/environmental/food/poisoning/hazardous-foods">potentially hazardous foods</a>.
+              </p>
+          </div>
+            <br>
+            <br>
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+            <br>            
+          </div>
+         
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Vitamins and other supplements<" -->
+          <div id="QualityVitamins" class="ComplaintSubType">
+           <div class="alert-halt" role="alert">
+              <h4><i class="fas fa-ban"></i>&nbsp; We do not investigate this complaint</h4>
+              <p>
+                The Therapeutic Goods Administration (TGA) is responsible for regulating vitamins and other supplements including herbal and traditional medicines.
+              </p>
+              <p>
+                Complaints relating to these products cannot be investigated by Queensland Health and should be reported directly to the TGA through their 
+                <a href="https://www.tga.gov.au/consumers">website</a>.  
+              </p>
+            </div>
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <buttons class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</buttons>&nbsp;
+            <buttons class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</buttons>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br> 
+          </div>
+
+          <!-- Complaint Type: "Food Quality", Complaint SubType: "Other" -->
+          <div id="QualityOther" class="ComplaintSubType">
+            <div class="alert alert-info" role="alert">
+              <p>
+                Select this category if you have a concern regarding food quality that is not covered by another category. 	
+              </p>
+            </div>
+            <br>
+            <br>
+
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br> 
+          </div>
+         
+
+          <!---------------------------------------------------------------------------------------------
+           COMPLAINT SUB-TYPE STILL PROCEED-
+          ----------------------------------------------------------------------------------------------->
+          <!-- Still proceed-->
+          <div id="StillProceedYes" class="StillProceed">  
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <button type="button" class="qg-btn btn-primary" onclick="nextPage()">Next</button>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+          <div id="StillProceedNo" class="StillProceed">  
+            <!-- Page buttons -->
+            <a class="qg-btn btn-default" href="2-AcceptTerms.html">Previous</a>&nbsp;
+            <a class="qg-btn btn-primary" href="9-ThankyouNoReferral.html">Next</a>&nbsp;
+            <a href="1-Home.html">Cancel</a>
+            <br>
+            <br>
+          </div>
+
+        </form> 
+
+        <!---------------------------------------------------------------------------------------------
+          PAGE DATES
+         ----------------------------------------------------------------------------------------------->
+        <!-- Page dates-->  
+        <div class="qg-content-footer">
+            <dl>
+              <dt>Last updated:</dt>
+              <dd>05 March 2020</dd>
+              <dt>Last reviewed:</dt>
+              <dd>05 March 2020</dd>
+         <!-- Page dates-->   </dl>
+        </div>
+  </div>
+    
+
+    <!-- LEFT SIDE NAVIGATION --> 
+    <nav id="qg-section-nav" aria-label="side navigation" role="navigation">
+      <h2><a href="#">The Food Pantry</a></h2>
+      <ul aria-label="section navigation">
+        <li><a href="#">Make a food safety complaint</a>
+          <ol class="guide-sub-nav">
+            <li><a href="1-Home.html" aria-hidden="true" ><span class="page-number">1</span>Home</a></li>
+            <li><a href="2-AcceptTerms.html"aria-hidden="true"><span class="page-number">2</span>Accept terms of use</a></li>                
+            <li><a href="3-ComplaintType.html" aria-hidden="true" class="active"><span class="page-number">3</span>Complaint type</a></li>
+            <li><a href="4-ComplaintDetails.html" aria-hidden="true"><span class="page-number">4</span>Complaint details</a></li>
+            <li><a href="5-Retailer.html" aria-hidden="true"><span class="page-number">5</span>Business details</a></li>
+            <li><a href="6-Manufacturer.html" aria-hidden="true"><span class="page-number">6</span>Manufacturer details</a></li>
+            <li><a href="7-Documents.html" aria-hidden="true"><span class="page-number">7</span>Documents</a></li>
+            <li><a href="8-AboutYou.html" aria-hidden="true"><span class="page-number">8</span>About you</a></li>
+          </ol>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+   <!-- Feeback button and sharing links-->
+   <div id="qg-options" class="row">
+     <!-- Sharing options --> 
+     <div id="qg-share" class="qg-share"></div>
+    
+     <!-- Feedback button-->
+     <div id="qg-feedback-btn">
+        <button class="btn btn-default qg-toggle-btn collapsed qg-icon" id="page-feedback-useful"
+            data-toggle="collapse"
+            data-target="#qg-page-feedback">Feedback
+        </button>
+      </div>  
+    </div>
+
+
+  <!-- Footer-->
+  <footer>
+    <div class="qg-site-map row">
+
+    <div>
+        <h3>
+            <a href="https://www.qld.gov.au/">Queensland Government</a>
+            <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-qg" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
+        </h3>
+        <ul class="collapse" id="footer-info-qg">
+            <li><a href="https://www.qld.gov.au/about/contact-government/contacts/">Government contacts</a></li>
+            <li><a href="https://www.qld.gov.au/about/contact-government/have-your-say/">Have your say</a></li>
+            <li><a href="https://www.qld.gov.au/about/staying-informed/">Staying informed</a></li>
+            <li><a href="https://www.qld.gov.au/about/government-jobs/">Government jobs</a></li>
+            <li><a href="https://www.qld.gov.au/about/how-government-works/">How government works</a></li>
+            <li><a href="https://data.qld.gov.au/">Queensland Government data</a></li>
+            <li><a href="https://publications.qld.gov.au/">Queensland Government publications</a></li>
+            <li><a href="https://www.forgov.qld.gov.au/?utm_medium=website&utm_source=qgov-site&utm_campaign=dsiti-for-gov&utm_content=swe-footer">Government employees</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>
+            <a href="https://www.qld.gov.au/queenslanders/">For Queenslanders</a>
+            <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-for-qld" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
+        </h3>
+        <ul class="col-2 collapse"  id="footer-info-for-qld">
+            <li><a href="https://www.qld.gov.au/transport/">Transport and motoring</a></li>
+            <li><a href="https://www.qld.gov.au/jobs/">Employment and jobs</a></li>
+            <li><a href="https://www.qld.gov.au/housing/">Homes and housing</a></li>
+            <li><a href="https://www.qld.gov.au/education/">Education and training</a></li>
+            <li><a href="https://www.qld.gov.au/community/">Community support</a></li>
+            <li><a href="https://www.qld.gov.au/health/">Health and wellbeing</a></li>
+            <li><a href="https://www.qld.gov.au/emergency/">Emergency services and safety</a></li>
+            <li><a href="https://www.qld.gov.au/about/">About Queensland and its government</a></li>
+            <li><a href="https://www.qld.gov.au/families/">Parents and families</a></li>
+            <li><a href="https://www.qld.gov.au/disability/">People with disability</a></li>
+            <li><a href="https://www.qld.gov.au/seniors/">Seniors</a></li>
+            <li><a href="https://www.qld.gov.au/atsi/">Aboriginal and Torres Strait Islander peoples</a></li>
+            <li><a href="https://www.qld.gov.au/youth/">Youth</a></li>
+            <li><a href="https://www.qld.gov.au/environment/">Environment, land and water</a></li>
+            <li><a href="https://www.qld.gov.au/law/">Your rights, crime and the law</a></li>
+            <li><a href="https://www.qld.gov.au/recreation/">Recreation, sport and arts</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>
+            <a href="http://www.business.qld.gov.au/">Business and industry</a>
+            <button class="btn btn-link qg-toggle-icon-right collapsed visible-xs-inline-block" data-toggle="collapse" data-target="#footer-info-bi" aria-expanded="false" aria-controls="footer-info-qg"><span class="sr-only">More Queensland Government pages</span>&nbsp;</button>
+        </h3>
+        <ul class="collapse" id="footer-info-bi">
+          <li><a href="https://www.business.qld.gov.au/starting-business">Starting a business</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business">Running a business</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business/employing">Employing people</a></li>
+          <li><a href="https://www.business.qld.gov.au/running-business/employing/payroll-tax">Payroll tax</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries">Industries</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest">Investing in Queensland</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/chinese-s" lang="zh">昆士兰州的投资机会</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/chinese-t" lang="zh">昆士蘭州的投資機會</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/japanese" lang="ja">クイーンズランド州への投資機会</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/korean" lang="ko">퀸즈랜드 투자 기회</a></li>
+          <li><a href="https://www.business.qld.gov.au/industries/invest/invertir-turismo" lang="sp">Oportunidades de inversión en Queensland</a></li>
+        </ul>
+    </div>
+
+</div>
+
+    <div class="qg-legal row">
+	<ul class="list-inline">
+		<li><a href="https://www.qld.gov.au/contact-us/" class="no-print">Contact us</a></li>
+		<li><a href="https://www.qld.gov.au/help/" class="no-print">Help</a></li>
+		<li><a href="https://www.qld.gov.au/legal/copyright/">Copyright</a></li>
+		<li><a href="https://www.qld.gov.au/legal/disclaimer/">Disclaimer</a></li>
+		<li><a href="https://www.qld.gov.au/legal/privacy/">Privacy</a></li>
+		<li><a href="https://www.qld.gov.au/right-to-information/">Right to information</a></li>
+		<li><a href="https://www.qld.gov.au/help/accessibility/" class="no-print">Accessibility</a></li>
+		<li><a href="http://www.smartjobs.qld.gov.au/" class="no-print">Jobs in Queensland Government</a></li>
+		<li id="link-languages"><a href="https://www.qld.gov.au/languages/" class="no-print">Other languages</a></li>
+	</ul>
+  <p class="qg-copyright">&copy; The State of Queensland <span id="qg-copyright-owner"></span><span id="qg-copyright-daterange"></span></p>
+	<p><a href="https://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
+</div>
+
+  </footer>
+</div>
+
+<script>
+  var qg = qg || {};
+  qg.swe = qg.swe || {};
+  // Used by the feedback form.
+  qg.swe.franchiseTitle = 'Franchise Title';
+</script>
+</script>>
+
+<!--external lib  (includes butterfly, markdown, generate-id)-->
+<script src="https://static.qgov.net.au/assets/v3.1/latest/lib/all-ext-min.js"></script>
+
+<!-- Require main javascript -->
+<!--<script src="/assets/v3/js/qg-env.js"></script>-->
+<script src="https://static.qgov.net.au/assets/v3.1/latest/js/qg-main.js"></script>
+
+
+</body>
+
+</html>
